@@ -9,8 +9,8 @@ import java.util.UUID;
 public class Crime {
     private UUID mId;
     private String mTitle;
-    private Date mDate;
-    private boolean mSolved;
+    private Date _mDate;
+    private boolean _mSolved;
 
     public UUID getmId() {
         return mId;
@@ -25,24 +25,29 @@ public class Crime {
     }
 
     public Date getmDate() {
-        return mDate;
+        return _mDate;
     }
 
     public void setmDate(Date mDate) {
-        mDate = mDate;
+        _mDate = mDate;
     }
 
     public boolean ismSolved() {
-        return mSolved;
+        return _mSolved;
     }
 
     public void setmSolved(boolean mSolved) {
-        mSolved = mSolved;
+        _mSolved = mSolved;
     }
 
     public Crime() {
         //Generate unique identifier
         mId = UUID.randomUUID();
-        mDate = new Date();
+        _mDate = new Date();
+    }
+
+    @Override
+    public String toString() {
+        return mTitle;
     }
 }
