@@ -94,6 +94,7 @@ public class CrimeFragment extends Fragment {
         //Log.d(TAG, mCrime.getmDate().toString());
         //mDateButton.setText(android.text.format.DateFormat.format("EEEEEEEEE, MMM d, yyyy", mCrime.getmDate()).toString());
         updateDate();
+        
         //Disable the button
         //mDateButton.setEnabled(false);
         mDateButton.setOnClickListener(new View.OnClickListener() {
