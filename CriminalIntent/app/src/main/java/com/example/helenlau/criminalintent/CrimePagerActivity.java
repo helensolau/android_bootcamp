@@ -13,9 +13,14 @@ import java.util.UUID;
 /**
  * Created by helenlau on 9/17/14.
  */
-public class CrimePagerActivity extends FragmentActivity {
+public class CrimePagerActivity extends FragmentActivity implements CrimeFragment.Callbacks {
     private ViewPager mViewPager;
     private ArrayList<Crime> mCrimes;
+
+    //Empty implements due to any activity that hosts CrimeFragment must implement CrimeFragment.Callbacks
+    public void onCrimeUpdated(Crime crime) {
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

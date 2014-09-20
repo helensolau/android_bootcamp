@@ -11,10 +11,17 @@ import android.support.v4.app.FragmentActivity;
 public abstract class SingleFragmentActivity extends FragmentActivity {
     protected abstract Fragment createFragment();
 
+    protected int getLayoutResId() {
+        return R.layout.activity_fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
+        //always return activity_fragment
+        //setContentView(R.layout.activity_fragment);
+        //dynamic fragment
+        setContentView(getLayoutResId());
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.frangmentContainer);
 
