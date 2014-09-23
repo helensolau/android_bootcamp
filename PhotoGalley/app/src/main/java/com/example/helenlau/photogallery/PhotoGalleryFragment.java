@@ -1,4 +1,4 @@
-package com.example.helenlau.photogalley;
+package com.example.helenlau.photogallery;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -6,15 +6,12 @@ import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,13 +24,15 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
-import java.io.IOException;
+import com.example.helenlau.photogallery.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by helenlau on 9/20/14.
  */
-public class PhotoGalleryFragment extends Fragment {
+//public class PhotoGalleryFragment extends Fragment {
+public class PhotoGalleryFragment extends VisibleFragment {
     private static final String TAG = "PhotoGalleryFragment";
 
     GridView mGridView;

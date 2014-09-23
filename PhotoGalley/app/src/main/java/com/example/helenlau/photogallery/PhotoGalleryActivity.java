@@ -1,10 +1,12 @@
-package com.example.helenlau.photogalley;
+package com.example.helenlau.photogallery;
 
 import android.app.SearchManager;
 import android.content.Intent;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+
+import com.example.helenlau.photogallery.R;
 
 /**
  * Created by helenlau on 9/20/14.

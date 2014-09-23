@@ -1,4 +1,4 @@
-package com.example.helenlau.photogalley;
+package com.example.helenlau.photogallery;
 
 /**
  * Created by helenlau on 9/20/14.

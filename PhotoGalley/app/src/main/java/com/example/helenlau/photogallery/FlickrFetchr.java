@@ -1,4 +1,4 @@
-package com.example.helenlau.photogalley;
+package com.example.helenlau.photogallery;
 
 import android.net.Uri;
 import android.util.Log;
@@ -7,7 +7,6 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,10 +1,8 @@
-package com.example.helenlau.photogalley;
+package com.example.helenlau.photogallery;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.GpsStatus;
-import android.net.sip.SipSession;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
