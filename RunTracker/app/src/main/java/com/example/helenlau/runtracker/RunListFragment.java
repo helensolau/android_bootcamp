@@ -1,13 +1,18 @@
 package com.example.helenlau.runtracker;
 
+import android.content.Intent;
 import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.CursorAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.example.helenlau.runtracker.RunDatabaseHelper.RunCursor;
 
@@ -15,12 +20,14 @@ import com.example.helenlau.runtracker.RunDatabaseHelper.RunCursor;
  * Created by helenlau on 9/24/14.
  */
 public class RunListFragment extends ListFragment {
+    private static final int REQUEST_NEW_RUN = 0;
 
     private RunCursor mCursor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         //Query the list of runs
         mCursor = RunManager.get(getActivity()).queryRuns();
         //Create an adapter to point at this cursor
@@ -32,6 +39,40 @@ public class RunListFragment extends ListFragment {
     public void onDestroy() {
         mCursor.close();
         super.onDestroy();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.run_list_options, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_new_run:
+                Intent i = new Intent(getActivity(), RunActivity.class);
+                startActivityForResult(i, REQUEST_NEW_RUN);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (REQUEST_NEW_RUN == requestCode) {
+            mCursor.requery();
+            ((RunCursorAdapter)getListAdapter()).notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        //The id argument will be the Run ID; CursorAdapter gives us this for free
+        Intent i = new Intent(getActivity(), RunActivity.class);
+        i.putExtra(RunActivity.EXTRA_RUN_ID, id);
+        startActivity(i);
     }
 
     private static class RunCursorAdapter extends CursorAdapter {
